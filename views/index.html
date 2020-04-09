@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casa Criativa</title>
+    {%include "head.html" %}
+
+</head>
+
+<body>
+
+    <div id="container">
+
+        <section id="intro">
+            <header>
+                <a href="/">
+                    <img src="/logo.png" alt="Imagem da logo marca">
+                </a>
+            </header>
+
+            <main>
+                <p>
+                    Ficar em casa em períodos longos, não deve ser nada fácil.
+                </p>
+                <p>
+                    Por isso, Iremos catalogar ideias, <strong>brincadeiras, jogos, filmes,
+                    livros, cursos, dicas </strong> e tudo que for necessário para tornar esse momento mais interessante.
+                </p>
+                <p>
+                    Comece clicando em ver ideias para ver as ideias cadastradas e contribua adicioando a sua ideia.
+                </p>
+            </main>
+
+            <section id="buttons">
+                <button onclick="onOff()">+ Adicionar Ideia</button>
+                <a href="/ideias" class="button">Ver ideias</a>
+
+            </section>
+
+            <footer>
+                com amor 😍 <a href="http://rocketseat.com.br" target="_black">RocketSeat</a>
+            </footer>
+
+        </section>
+        <section id="last-ideias">
+            {% for idea in ideas %}
+            <div class="idea">
+                <img src="{{idea.img}}" alt="Imagem de {{idea.title}}">
+
+                <div class="content">
+                    <h3>{{idea.title}}</h3>
+                    <p>{{idea.category}}</p>
+                    <div class="desctiption">
+                        {{idea.description}}
+                    </div>
+                    <a href="{{idea.url}}" target="_blank"> Ir para a ideia</a>
+                </div>
+            </div>
+            {% endfor %}
+        </section>
+    </div>
+    <!-- Modal -->
+    {% include "modal.html" %}
+
+    <script src="/script.js"></script>
+</body>
+
+</html>
